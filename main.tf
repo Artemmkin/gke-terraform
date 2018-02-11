@@ -21,6 +21,7 @@ resource "google_container_cluster" "primary" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
     ]
+    tags = ["iac-kubernetes"]
   }
 
   # configure kubectl to talk to the cluster

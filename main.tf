@@ -31,12 +31,13 @@ resource "google_container_cluster" "primary" {
 }
 
 # create firewall rule to allow access to application
-resource "google_compute_firewall" "raddit" {
-  name    = "raddit-tcp-9292"
+resource "google_compute_firewall" "nodeports" {
+  name    = "node-port-range"
   network = "default"
+
   allow {
     protocol = "tcp"
-    ports    = ["9292"]
+    ports    = ["30000-32767"]
   }
   source_ranges = ["0.0.0.0/0"]
 }
